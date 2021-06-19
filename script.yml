@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+  - name: Installing the httpd package
+    package: 
+      name: "httpd"
+      state: present
+  - name: Copying the remote content
+    copy: 
+      src: index.html
+      dest: /var/www/html/
+  - name: Starting the services
+    service: 
+      name: httpd
+      state: started
